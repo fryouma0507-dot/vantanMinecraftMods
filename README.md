@@ -92,3 +92,22 @@
 | **KubeJS** | JavaScriptでゲームの挙動やレシピを高度にカスタマイズ。 | [Modrinth](https://modrinth.com/mod/kubejs) | lib |
 | **PolyLib** | 複数のMODで使用される共通コードライブラリ。 | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/polylib) | lib |
 | **Rhino** | KubeJS等の動作に必要なJavaScriptエンジン。 | [Modrinth](https://modrinth.com/mod/rhino) | lib |
+
+### 起動環境(docker)
+```yml
+services:
+  mc:
+    image: itzg/minecraft-server:java17
+    environment:
+      EULA: "TRUE"
+      TYPE: FORGE
+      VERSION: "1.20.1"
+      FORGE_VERSION: "47.4.10"
+      MEMORY: "6G"
+      ONLINE_MODE: "TRUE"
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./minecraft:/data
+    restart: unless-stopped
+```
